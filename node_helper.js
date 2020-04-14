@@ -230,6 +230,19 @@ module.exports = NodeHelper.create({
                     }
                 }
             }
+            else if(this.config.vcgencmd =='script'){
+                device.handler = function(action) {
+                    if(action === 1){
+                        exec(_this.config.script + " ON", opts, (error, stdout, stderr) => {
+                            _this.checkForExecError(error, stdout, stderr);
+                        });
+                    }if(action === 0){
+                        exec(_this.config.script + " OFF", opts, (error, stdout, stderr) => {
+                            _this.checkForExecError(error, stdout, stderr);
+                        });
+                    }
+                }
+            }
             else if(this.config.vcgencmd =='hide'){
             	console.log("configuring toggle with hide")
             	device.handler = function(action) {     

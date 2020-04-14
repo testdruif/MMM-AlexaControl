@@ -25,7 +25,8 @@ Module.register("MMM-AlexaControl",{
         shutdown: false,    //  shutdown your pi
         pm2ProcessName: "mm",  //  name of your pm2 process
         monitorToggle: true,   //  sitch your monitor on and off
-        vcgencmd: 'vcgencmd'   //  command you use for monitor toggle
+        vcgencmd: 'vcgencmd',   //  command you use for monitor toggle
+	script: "none"
     },
 
     getTranslations: function(){            // add more translations
