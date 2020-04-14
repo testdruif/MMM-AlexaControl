@@ -66,7 +66,9 @@ Module.register("MMM-AlexaControl",{
             }
         } 
         if(notification === "CUSTOM"){
-            this.sendNotification(payload[0], payload[1]);  //  send any notification to any module
+		for(i = 0; i < Object.keys(payload).length; i++){
+			this.sendNotification(payload[i][0], payload[i][1]);  //  send any notification to any module
+		}
         }
         if(notification =='MONITOR_ACTION'){
             Log.log('RECEIVE monitor NOTIFICATION='+payload)
