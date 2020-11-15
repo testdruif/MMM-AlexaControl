@@ -26,7 +26,8 @@ Module.register("MMM-AlexaControl",{
         pm2ProcessName: "mm",  //  name of your pm2 process
         monitorToggle: true,   //  sitch your monitor on and off
         vcgencmd: 'vcgencmd',   //  command you use for monitor toggle
-	script: "none"
+	script: "none",
+	script_reboot: "none"
     },
 
     getTranslations: function(){            // add more translations

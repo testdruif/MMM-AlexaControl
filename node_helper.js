@@ -124,19 +124,10 @@ module.exports = NodeHelper.create({
             device.name = _this.formattedName(_this.translations["deviceName"],_this.translations["restart"])
             device.port = _this.config.startPort
             device.handler = function(action) {
-                pm2.connect((err) => {
-                    if (err) {
-                        console.error(err);
-                    }
-        
-                    console.log("Restarting PM2 process: " + _this.config.pm2ProcessName);
-                    pm2.restart(_this.config.pm2ProcessName, function(err, apps) {
-                        pm2.disconnect();
-                        if (err) { console.log(err); }
-                    });
-                });
+		exec(_this.config.script_reboot, opts, (error, stdout, stderr) => {
+                            _this.checkForExecError(error, stdout, stderr);
+                        });
             }
-            
             menuD.devices[counter] = device;
             counter++;
         }
