@@ -124,7 +124,7 @@ module.exports = NodeHelper.create({
             device.name = _this.formattedName(_this.translations["deviceName"],_this.translations["restart"])
             device.port = _this.config.startPort
             device.handler = function(action) {
-		exec(_this.config.script_reboot, opts, (error, stdout, stderr) => {
+		exec(_this.config.script_restart, opts, (error, stdout, stderr) => {
                             _this.checkForExecError(error, stdout, stderr);
                         });
             }
